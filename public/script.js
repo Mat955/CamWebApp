@@ -3,8 +3,6 @@ const videoGrid = document.getElementById('main__videos__grid');
 const myVideo = document.createElement('video');
 const muteAudioButton = document.querySelector('.main__mute_button');
 const playStopVideoButton = document.querySelector('.main__video_button');
-
-let stop
 myVideo.muted = true;
 
 const peer = new Peer(undefined, {
