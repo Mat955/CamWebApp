@@ -11,8 +11,9 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use('/peerjs', peerServer);
+
 app.get('/', (req, res) => {
-  res.redirect(`/${uuidv4()}`);
+  res.redirect(`/${uuidV4()}`);
 });
 
 app.get('/:room', (req, res) => {
@@ -30,4 +31,4 @@ io.on('connection', socket => {
   });
 });
 
-server.listen(process.env.PORT || 9000);
+server.listen(process.env.PORT || 3030);

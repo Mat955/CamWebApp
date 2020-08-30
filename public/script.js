@@ -6,18 +6,20 @@ const playStopVideoButton = document.querySelector('.main__video_button');
 let myVideoStream;
 myVideo.muted = true;
 
-const peer = new Peer(undefined, {
+const myPeer = new Peer(undefined, {
   path: '/peerjs',
   host: '/',
   port: '443'
 });
 
-peer.on('open', id => {
+myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 });
 
+const peers = {};
+
 const connectToNewUser = (userId, stream) => {
-  const call = peer.call(userId, stream);
+  const call = myPeer.call(userId, stream);
   const video = document.createElement('video');
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream);
@@ -105,7 +107,7 @@ navigator.mediaDevices.getUserMedia({
   myVideoStream = stream;
   addVideoStream(myVideo, stream);
 
-  peer.on('call', call => {
+  myPeer.on('call', call => {
     call.answer(stream);
     const video = document.createElement('video');
     call.on('stream', userVideoStream => {
