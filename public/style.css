@@ -120,3 +120,32 @@ video {
 .unmute, .stop {
   color: #CC3B33;
 }
+
+@media (min-width: 375px) and (max-width: 499px) {
+
+    .main {
+      overflow-y: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+    }
+    /* .main__controls__button{
+      min-width: 100vw;
+    } */
+    .main__controls__button i{
+      font-size: 30px;
+    }
+    .main__controls__block {
+      display: block;
+    }
+    span {
+      font-size: 12px;
+    }
+    .main__right {
+      display: none;
+    }
+    .main__left {
+      flex: 1;
+    }
+
+}
